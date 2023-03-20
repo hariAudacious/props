@@ -1,15 +1,34 @@
-import React from "react";
-import Card from "../components/card";
-import { myData } from "../constant/index";
+import React, { useEffect, useState } from "react";
 const Main = () => {
-  console.log(myData);
+  const [fromValue, setFormValue] = useState({});
+
+  const getValue = (e) => {
+    const { value, name } = e.target;
+    setFormValue({ ...fromValue, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(fromValue);
+  };
   return (
-    <div style={{ display: "flex" }}>
-      {myData.map((value) => (
-        <div>
-          <Card firstName={value.fistName} lastName={value.lastName} />
-        </div>
-      ))}
+    <div>
+      Run
+      <form onSubmit={(event) => handleSubmit(event)}>
+        <input
+          placeholder="Enter Your Name"
+          onChange={(e) => getValue(e)}
+          name="UserName"
+        />
+        <br />
+        <input
+          placeholder="Enter Your Father Name"
+          onChange={(e) => getValue(e)}
+          name="FatherName"
+        />
+        <br />
+        <input type="submit" />
+      </form>
     </div>
   );
 };
