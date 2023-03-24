@@ -6,6 +6,9 @@ const Header = () => {
     <div>
       <ul className={styles.container}>
         <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
           <Link to="/user">Users</Link>
         </li>
         <li>
@@ -13,9 +16,6 @@ const Header = () => {
         </li>
         <li>
           <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/home">Home</Link>
         </li>
       </ul>
     </div>
